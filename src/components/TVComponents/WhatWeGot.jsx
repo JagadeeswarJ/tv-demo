@@ -1,0 +1,161 @@
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
+function WhatWeGot() {
+  const translations = [
+    { lang: "English", text: " Technovista" },
+    { lang: "Hindi", text: " टेक्नोविस्टा" },
+    { lang: "Telugu", text: " టెక్నోవిస్తా" },
+    { lang: "Odia", text: " ଟେକ୍ନୋଭିଷ୍ଟା" },
+    { lang: "Kannada", text: " ಟೆಕ್ನೋವಿಸ್ಟಾ" },
+    { lang: "Tamil", text: " டெக்னோவிஸ்டா" },
+    { lang: "Malayalam", text: " ടെക്നോവിസ്റ്റ" },
+  ];
+
+  const stats = [
+    {
+      icon: "fas fa-user-graduate",
+      title: "600+ Participants",
+      desc: "Engaging tech enthusiasts from across the region",
+      highlight: "from 50+ colleges",
+      color: "from-amber-500/20 to-amber-600/10",
+      border: "border-amber-500/30",
+    },
+    {
+      icon: "fas fa-calendar-alt",
+      title: "10+ Events",
+      desc: "Diverse competitions across multiple tech domains",
+      highlight: "3 days of non-stop action",
+      color: "from-purple-500/20 to-purple-600/10",
+      border: "border-purple-500/30",
+    },
+    {
+      icon: "fas fa-award",
+      title: "1.45 Lakh Prize Pool",
+      desc: "Exciting rewards for top performers",
+      highlight: "across all events",
+      color: "from-blue-500/20 to-blue-600/10",
+      border: "border-blue-500/30",
+    },
+  ];
+
+  const [index, setIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState(translations[0].text);
+
+  useEffect(() => {
+    let charIndex = 0;
+    const newText = translations[index].text;
+    let currentText = "";
+
+    const typingEffect = setInterval(() => {
+      if (charIndex < newText.length) {
+        currentText += newText.charAt(charIndex);
+        setDisplayedText(currentText);
+        charIndex++;
+      } else {
+        clearInterval(typingEffect);
+        setTimeout(() => {
+          setIndex((prevIndex) => (prevIndex + 1) % translations.length);
+        }, 500);
+      }
+    }, 150);
+
+    return () => clearInterval(typingEffect);
+  }, [index]);
+
+  return (
+    <div className="min-h-screen bg-none overflow-hidden px-4 pt-20 md:pt-0 flex flex-col items-center justify-center text-white text-center select-none">
+      {" "}
+      <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold mb-6 leading-tight font-mono">
+        WHAT WE'VE GOT FOR YOU
+      </h1>
+      <motion.span
+        className="text-3xl sm:text-5xl md:text-7xl font-bold text-yellow-400"
+        animate={{ scale: [1, 1, 1] }}
+        transition={{ duration: 1.2, repeat: Infinity }}
+      >
+        {displayedText} 2K25
+      </motion.span>
+      <section className="mt-8 bg-gradient-to-br from-yellow-900/20 to-black/50 border border-yellow-500/20 rounded-xl p-6 sm:p-8 max-w-4xl mx-auto shadow-xl">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-yellow-400 mb-4 tracking-wide">
+          The Ultimate Tech Carnival
+        </h2>
+        <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
+          Gear up for the{" "}
+          <span className="text-yellow-400 font-semibold">second edition</span>{" "}
+          of the most electrifying tech fest of the year —{" "}
+          <span className="font-bold text-white">TechnoVista 2K25</span>, hosted
+          by <span className="text-white">VJ DataQuesters</span>! This 3-day
+          extravaganza fuses cutting-edge innovation, relentless challenges, and
+          limitless creativity. From{" "}
+          <span className="text-yellow-300">Hackathons</span> to{" "}
+          <span className="text-yellow-300">Debug Challenges</span>,{" "}
+          <span className="text-yellow-300">Workshops</span> to{" "}
+          <span className="text-yellow-300">Tech Talks</span> — there’s
+          something for every tech enthusiast!
+        </p>
+
+        <p className="mt-4 text-sm sm:text-base md:text-lg text-gray-300">
+          <span className="font-medium text-yellow-400">
+            Decode. Discover. Disrupt.
+          </span>
+        </p>
+      </section>
+      {/* stats Section */}
+      <div className="mt-8 md:mt-12 w-full max-w-6xl px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 overflow-visible">
+        {stats.map((stat, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{
+              y: -5,
+              scale: 1.02,
+              boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3)",
+            }}
+            className={`relative rounded-xl overflow-hidden p-0.5 bg-gradient-to-br ${stat.color}`}
+          >
+            <div
+              className={`relative bg-black/70 backdrop-blur-sm rounded-xl p-6 h-full flex flex-col items-center justify-center border ${stat.border}`}
+            >
+              {/* Animated icon with gradient */}
+              <div className="relative mb-6">
+                <div
+                  className={`absolute inset-0 rounded-full bg-gradient-to-br ${stat.color} blur-md opacity-70`}
+                ></div>
+                <i
+                  className={`${stat.icon} text-4xl sm:text-5xl relative z-10 text-amber-400`}
+                />
+              </div>
+
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                {stat.title}
+              </h3>
+
+              <p className="text-sm sm:text-base text-gray-300 mb-3">
+                {stat.desc}
+              </p>
+
+              <p className="text-xs sm:text-sm font-medium bg-gradient-to-r from-amber-500 to-amber-300 bg-clip-text text-transparent">
+                {stat.highlight}
+              </p>
+
+              {/* Animated border effect */}
+              <motion.div
+                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ duration: 1, delay: 0.3 }}
+                viewport={{ once: true }}
+              />
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default WhatWeGot;
