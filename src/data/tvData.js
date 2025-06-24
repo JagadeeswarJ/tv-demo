@@ -1,0 +1,123 @@
+export const eventTimeLine = [
+  {
+    day: 1,
+    date: "2025-07-30",
+    events: [
+      {
+        id: 1,
+        title: "Guest Lecture",
+        subtitle: "The Future of AI",
+        date: "2025-07-30",
+        time: "10:00 AM - 11:30 AM",
+        venue: "Main Seminar Hall",
+        formlink:
+          "https://docs.google.com/forms/d/e/1FAIpQLSeXM4H7HPm5BrCdNITufedmVMhMw5tul_sLGsUMPCZ1IjlMhg/viewform?embedded=true",
+        description:
+          "An enlightening session by Dr. Ayesha Kapoor on how Artificial Intelligence is shaping the industries of tomorrow.",
+        highlights: [
+          "Industry Trends",
+          "Q&A Session",
+          "Networking Opportunity",
+        ],
+        icon: "🎙️",
+        image: "/events/Technovista2025/img1.png",
+      },
+      {
+        id: 2,
+        title: "ML Challenge",
+        subtitle: "Model the Unknown",
+        date: "2025-07-30",
+        time: "1:00 PM - 4:00 PM",
+        venue: "Lab 2, Tech Block",
+        formlink: "",
+        description:
+          "A real-time machine learning challenge where participants build predictive models with limited data.",
+        highlights: ["Data Splits", "Model Deployment", "Leaderboard"],
+        icon: "🤖",
+        image: "/events/Technovista2025/img2.png",
+      },
+    ],
+  },
+  {
+    day: 2,
+    date: "2025-07-31",
+    events: [
+      {
+        id: 3,
+        title: "Blogathon",
+        subtitle: "Tech Pen Masters",
+        date: "2025-07-31",
+        time: "9:30 AM - 11:30 AM",
+        venue: "Room A1, Innovation Wing",
+        formlink: "",
+        description:
+          "Showcase your writing skills and tech knowledge by penning powerful blogs on emerging tech topics.",
+        highlights: ["Creativity", "Technical Accuracy", "Publication Chance"],
+        icon: "✍️",
+        image: "/events/Technovista2025/img3.png",
+      },
+      {
+        id: 4,
+        title: "DQ Code Fest",
+        subtitle: "Battle of Coders",
+        date: "2025-07-31",
+        time: "12:00 PM - 2:30 PM",
+        venue: "Lab 5, Data Quest Center",
+        formlink: "",
+        description:
+          "Compete in fast-paced rounds of algorithmic and logic-based coding challenges.",
+        highlights: ["Timed Rounds", "Live Leaderboard", "Solo & Teams"],
+        icon: "💻",
+        image: "/events/Technovista2025/img4.png",
+      },
+      {
+        id: 5,
+        title: "Debug or Die",
+        subtitle: "Ultimate Debugging Battle",
+        date: "2025-07-31",
+        time: "3:00 PM - 5:00 PM",
+        venue: "Lab 4, Coding Arena",
+        formlink: "",
+        description:
+          "Fix broken code snippets faster than your opponents in this intense bug hunt.",
+        highlights: ["Real Bugs", "Speed Test", "Logic Puzzles"],
+        icon: "🐞",
+        image: "/events/Technovista2025/img5.png",
+      },
+    ],
+  },
+  {
+    day: 3,
+    date: "2025-08-03",
+    events: [
+      {
+        id: 6,
+        title: "24hr Hackathon",
+        subtitle: "Innovate. Create. Dominate.",
+        date: "2025-08-03",
+        time: "9:00 AM (Aug 3) - 9:00 AM (Aug 4)",
+        venue: "Innovation Lab Hall",
+        formlink: "",
+        description:
+          "Build full-fledged applications around themes like AI, environment, and accessibility in a 24-hour non-stop hack.",
+        highlights: ["Mentorship", "Swags", "Demo Day", "Cash Prizes"],
+        icon: "🧠",
+        image: "/events/Technovista2025/img6.png",
+      },
+      {
+        id: 7,
+        title: "Workshop",
+        subtitle: "Full Stack Web Dev",
+        date: "2025-08-03",
+        time: "10:00 AM - 1:00 PM",
+        venue: "Workshop Hall B",
+        formlink: "",
+        description:
+          "Hands-on workshop covering MERN stack development basics, deployment, and GitHub collaboration.",
+        highlights: ["React", "MongoDB", "GitHub", "Deployment"],
+        icon: "🛠️",
+        image: "/events/Technovista2025/img7.png",
+      },
+    ],
+  },
+];
