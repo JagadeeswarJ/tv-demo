@@ -98,7 +98,7 @@ const FooterTV = () => {
               Quick Links
             </h2>
             <div className="w-full flex justify-center">
-              <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-xs">
+              <div className="grid grid-cols-1 gap-3 sm:gap-4 w-full max-w-xs">
                 <a
                   href="/about"
                   target="_blank"
@@ -107,7 +107,7 @@ const FooterTV = () => {
                   About Us
                 </a>
                 <a
-                  href="/events"
+                  href="/technovista/events"
                   target="_blank"
                   className="text-sm sm:text-base md:text-lg hover:text-yellow-400 transform transition-all duration-300 hover:translate-x-1 text-center"
                 >

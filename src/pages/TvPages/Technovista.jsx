@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import WhatWeGot from "../../components/TVComponents/WhatWeGot";
 import Intro from "../../components/TVComponents/Intro";
 import EventTimeTV from "../../components/TVComponents/EventTimeTV";
 import Carousel3D from "../../components/TVComponents/CarouselTV";
 import Countdown from "../../components/TVComponents/CountDown";
 import FooterTV from "../../components/TVComponents/FooterTV";
+import PastImages from "../../components/TVComponents/PastImages";
 import "./Technovista.css";
 
 const Technovista = () => {
@@ -14,6 +16,7 @@ const Technovista = () => {
   const sectionRef = useRef(null);
   const controls = useAnimation();
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -82,7 +85,7 @@ const Technovista = () => {
   }, [isMobile]);
 
   return (
-    <div className="bg-black min-h-[250vh] relative bg">
+    <div className="bg-black min-h-[250vh] relative bg pt-10">
       <Intro />
       {introDone && (
         <div className="relative z-10 flex flex-col pt-10">
@@ -91,39 +94,53 @@ const Technovista = () => {
             ref={sectionRef}
             className=" overflow-hidden select-none flex flex-col items-center justify-center gap-12 py-8"
           >
-          <nav className="fixed top-0 left-0 w-full z-50 pt-2  border-b border-yellow-500/10 backdrop-blur-lg">
-  <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex justify-between items-center h-14">
-      
-      {/* Left: Logos with "x" */}
-      <div className="flex items-center space-x-3">
-        <a href="https://www.vjdataquesters.com/" target="_blank" >
-          <img src="/events/Technovista2025/tv25-icons/dq-vector.png" alt="Logo 1" className="h-10 w-auto object-contain" />
-        </a>
-        <span className="text-yellow-500 font-bold text-xl">×</span>
-        <a href="https://vnrvjiet.ac.in/" target="_blank" rel="noopener noreferrer">
-          <img src="/events/Technovista2025/tv25-icons/VNRVJIET-logo-files-03.png" alt="Logo 2" className="h-10 w-auto object-contain" />
-        </a>
-      </div>
+            <nav className="fixed top-0 left-0 w-full z-50 pt-2  border-b border-yellow-500/10 backdrop-blur-lg">
+              <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between items-center h-14">
+                  {/* Left: Logos with "x" */}
+                  <div className="flex items-center space-x-3">
+                    <a
+                      href="https://www.vjdataquesters.com/home"
+                      target="_blank"
+                    >
+                      <img
+                        src="/events/Technovista2025/tv25-icons/dq-vector.png"
+                        alt="Logo 1"
+                        className="h-10 w-auto object-contain"
+                      />
+                    </a>
+                    <span className="text-yellow-500 font-bold text-xl">×</span>
+                    <a
+                      href="https://vnrvjiet.ac.in/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src="/events/Technovista2025/tv25-icons/VNRVJIET-logo-files-03.png"
+                        alt="Logo 2"
+                        className="h-10 w-auto object-contain"
+                      />
+                    </a>
+                  </div>
 
-      {/* Right: Links */}
-      <div className="flex space-x-4">
-        <a
-          href="/TechnovistaForm.jsx"
-          className="bg-yellow-500 text-black px-5 py-1.5 rounded-lg font-semibold hover:bg-yellow-600 transition-colors"
-        >
-          Register
-        </a>
-      </div>
-    </div>
-  </div>
-</nav>
+                  {/* Right: Links */}
+                  <div className="flex space-x-4">
+                    <button
+                      onClick={() => navigate("/technovista/register")}
+                      className="bg-yellow-500 text-black px-5 py-1.5 rounded-lg font-semibold hover:bg-yellow-600 transition-colors"
+                    >
+                      Register
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </nav>
             {/* Countdown */}
             <motion.div
               variants={letterVariants}
               // initial="hidden"
               // animate={isVisible ? "visible" : "hidden"}
-              className="w-full max-w-5xl px-4"
+              className="max-w-7xl px-4 py-4 flex flex-col items-center justify-center"
             >
               <Countdown isVisible={isVisible} />
             </motion.div>
@@ -175,11 +192,27 @@ const Technovista = () => {
               </div>
             </div>
           </div>
+          {/*PastEvents Gallery Section */}
+          <div>
+            <section className="max-w-7xl md:max-w-[90%] h-full mx-auto">
+              <h4 className="text-center text-[40px] md:text-[30px] lg:text-[50px] font-semibold text-yellow-500 ">
+                TV-2k24 Glimpses
+              </h4>
+              <div className="pt-4 pb-8">
+                <div className="flex justify-center">
+                  <div className="w-full max-w-6xl mx-auto">
+                    <PastImages />
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
           <div className="w-screen  text-center select-none">
             <h1 className="text-[0px] sm:text-[100px] md:text-[130px] lg:text-[160px] xl:text-[230px] leading-none font-bold text-amber-500/30 tracking-wide">
               TECHNOVISTA
             </h1>
           </div>
+
           <FooterTV />
         </div>
       )}
