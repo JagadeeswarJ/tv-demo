@@ -55,9 +55,6 @@ const FormBanner = () => {
             <Star className="text-yellow-400 ml-2 animate-pulse" size={24} />
           </div>
           <div className="h-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent mb-2"></div>
-          <p className="text-gray-300 text-sm font-light">
-            Join the future of technology • Experience innovation
-          </p>
         </div>
 
         {/* Main content with scroll */}
@@ -99,11 +96,12 @@ const FormBanner = () => {
                     </div>
                   </div>
                 </div>
-
-                <div className="flex items-center text-yellow-300 mb-4">
-                  <MapPin size={16} className="mr-2" />
-                  <span className="text-sm font-medium">{event.venue}</span>
-                </div>
+                {venue && (
+                  <div className="flex items-center text-yellow-300 mb-4">
+                    <MapPin size={16} className="mr-2" />
+                    <span className="text-sm font-medium">{event.venue}</span>
+                  </div>
+                )}
 
                 <p className="text-gray-300 text-sm mb-4 leading-relaxed font-light">
                   {event.description}
@@ -159,23 +157,6 @@ const FormBanner = () => {
                 </div>
               </button>
             ))}
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className="text-center pt-4 border-t border-yellow-400/20">
-          <div className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 p-[2px] rounded-lg inline-block shadow-2xl shadow-yellow-400/30">
-            <div className="bg-black px-8 py-3 rounded-md">
-              <p className="text-sm text-gray-300 mb-1 font-light">
-                Ready to be part of the innovation?
-              </p>
-              <div className="flex items-center justify-center text-yellow-400">
-                <Trophy size={18} className="mr-2 animate-pulse" />
-                <span className="text-sm font-bold tracking-wide">
-                  REGISTER NOW & JOIN THE FUTURE
-                </span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
